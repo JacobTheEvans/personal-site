@@ -1,0 +1,21 @@
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="article-logo">{{article.title}}</div>
+          <div class="sub-info">{{"Posted by " + article.auth + " on " + article.postDate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper-blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div ng-include="article.url"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div id="home" class="header">
+  <div class="header-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="logo logo-m">Jacob Evans</div>
+          <div class="sub-logo sub-m"><i class="fa fa-code"></i> Web Developer</div>
+          <a ng-click="gotoElement('about')" class="down-chev jump"><i class="fa fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="about"></div>
+<div class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-top">
+          <div class="sec-header">About</div>
+          <div class="line-top"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+          <h2 class="par-header">Description</h2>
+          <div class="line"></div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2">
+          <div class="par-right">}</div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <a href="files/resume.pdf" class="btn btn-custom">Resume <i class="fa fa-book"></i></a>
+          <p class="par">I am Jacob Evans, a eighteen year old programmer. I love computer science and anything to do with technology. I am also an avid Linux user and a big supporter of the open source movement.</p>          </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h2 class="par-header">Coding Skills</h2>
+          <div class="line"></div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2">
+          <div class="par-right">}</div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <a href="https://github.com/JacobTheEvans" class="btn btn-custom">Github <i class="fa fa-github"></i></a>
+          <label>Languages</label>
+          <p class="par">HTML, CSS, JavaScript, Python, PHP and Java</p>
+          <label>Frameworks</label>
+          <p class="par">Angular, jQuery, and Bootstrap</p>
+          <label>Databases</label>
+          <p class="par">MySQL, SQL and MongoDB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="portfolio"></div>
+<div class="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-top">
+          <div class="sec-header">Portfolio</div>
+          <div class="line-top"></div>
+        </div>
+      </div>
+        </div>
+        <div class="container">
+          <div class="row" ng-init="loadProjects()">
+            <div ng-repeat="project in projects track by $index">
+              <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="project-box">
+                  <h3 class="project-title">{{project.name}}</h3>
+                  <p>{{project.desc}}</p>
+                  <a data-toggle="modal" ng-click="setProject(projects[$index])" data-target="#projectShow" class="btn btn-project">Check it out <i class="fa fa-share"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="projectShow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">{{currentProject.name}}</h3>
+        </div>
+        <div class="modal-body">
+          <img class="img-responsive" ng-src="{{currentProject.images[currnetImageIndex]}}">
+          <div class="chev-group">
+            <div class="chev-left">
+              <a ng-click="addIndex()" class="btn-chev"><i class="fa fa-chevron-left"></i></a>
+            </div>
+            <div class="chev-right">
+              <a ng-click="subIndex()" class="btn-chev"><i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+          <p class="par">{{currentProject.desc}}</p>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+          <a href="{{currentProject.git}}" class="btn btn-default" target="_blank">Code Here</a>
+          <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

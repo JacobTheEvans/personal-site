@@ -1,0 +1,6 @@
+<p class="par"><a href="https://pypi.python.org/pypi/pexpect" class="blog-link">Pexpect</a> is a python module for running child processes inside of linux. I recently ran into a problem with running programs in linux while still maintaining control of the procces itself while in python.</p>
+<p class="par">The pexpect is a module for controlling terminal commands in python for programs like <a href="https://en.wikipedia.org/wiki/Secure_Shell" class="blog-link">ssh</a>, <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol" class="blog-link">ftp</a>, <a href="https://en.wikipedia.org/wiki/Telnet" class="blog-link">telnet</a> but it can be used for so much more. Using pexpect.run() method you can run programs from terminal such as a browser. For example I can run other python programs from pexpect by using a simple line of code like below.</p>
+<pre class="prettyprint">
+  pexpect.run("python /path/example.py")
+</pre>
+<p class="par">Although it is a bit cheaty it is an awesome way to make a master control program in python.</p>

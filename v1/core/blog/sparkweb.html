@@ -1,0 +1,42 @@
+<p class="par">
+<a href="http://www.igniterealtime.org/projects/sparkweb/" class="blog-link">SparkWeb</a> is an IM client most commonly used in combination with OpenFire. I will show you how to install it on <a href="http://www.ubuntu.com/download/server" class="blog-link">Ubuntu 14.04</a>.</p>
+<p class="par color-blue">Step 1:</p>
+<p class="par">Make sure you system is updated.</p>
+<p class="par">sudo apt-get update && sudo apt-get upgrade</p>
+<br>
+<p class="par color-blue">Step 2:</p>
+<p class="par">Download dependencies.</p>
+<p class="par">sudo apt-get install lamp-server^</p>
+<br>
+<p class="par color-blue">Step 3:</p>
+<p class="par">Navigate to the correct directory.</p>
+<p class="par">cd /var/www/html</p>
+<br>
+<p class="par color-blue">Step 4:</p>
+<p class="par">Create directory for SparkWeb.</p>
+<p class="par">sudo mkdir -p webchat && cd</p>
+<br>
+<p class="par color-blue">Step 5:</p>
+<p class="par">Download SparkWeb.</p>
+<p class="par">wget http://www.igniterealtime.org/downloadServlet?filename=sparkweb/sparkweb_0_9_0.zip</p>
+<br>
+<p class="par color-blue">Step 6:</p>
+<p class="par">Unpack .zip file.</p>
+<p class="par">sudo unzip -j sparkweb_0_9_0.zip</p>
+<br>
+<p class="par color-blue">Step 7:</p>
+<p class="par">Remove .zip file.</p>
+<p class="par">sudo rm sparkweb_0_9_0.zip</p>
+<br>
+<p class="par color-blue">Step 8:</p>
+<p class="par">Rename SparkWeb to index.</p>
+<p class="par">sudo mv SparkWeb.html index.html</p>
+<br>
+<p class="par color-blue">Step 9:</p>
+<p class="par">Now change edit index.html to work with your local OpenFire server.</p>
+<p class="par">sudo nano index.html</p>
+<p class="par">Change only line 32</p>
+<p class="par">from 'igniterealtime.org' to 'server.local'</p>
+<br>
+<p class="par color-blue">Step 10:</p>
+<p class="par">Open your browser and go to your http://yourdomain.com/webchat</p>

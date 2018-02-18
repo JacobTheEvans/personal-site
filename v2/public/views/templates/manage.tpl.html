@@ -1,0 +1,89 @@
+<div id="loading">
+  <img class="total-center" src="/images/gear.gif">
+  <p class="color-blue">Loading content</p>
+</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+  <header class="mdl-layout__header mdl-chat__header">
+    <div class="mdl-layout__header-row mdl-chat__header">
+      <span class="mdl-layout-title">{{navLocal}} <a href="/admin/#/maker/{{navLocal}}" id="add-btn-nav" class="mdl-button mdl-js-button mdl-button--icon btn-nav-add"><i class="material-icons">add</i></a></span>
+      <div class="mdl-layout-spacer space_m"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+        <label class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" for="search-input"><i class="material-icons">search</i></label>
+        <div class="mdl-textfield__expandable-holder">
+          <input ng-model="searchText" class="mdl-textfield__input" id="search-input">
+          <label class="mdl-textfield__label">Search</label>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title drawer_title">Admin<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">arrow_drop_down</i></button></span>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+      <a class="sub-menu" href="/"><li class="mdl-menu__item">Logout</li></a>
+    </ul>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link drawer_link" ng-click="setNavLocal('Blog')">Blog</a>
+      <a class="mdl-navigation__link drawer_link" ng-click="setNavLocal('Portfolio')">Portfolio</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-grid" ng-init="loadData()" ng-if="navLocal == 'Blog'">
+      <div class="mdl-cell mdl-cell--12-col">
+        <table class="mdl-data-table mdl-js-data-table full-width mdl-shadow--3dp">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Post Date</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="post in posts| orderBy: 'postDate':true | filter:{title: searchText}">
+              <td>{{post._id}}</td>
+              <td>{{post.title}}</td>
+              <td>{{post.auth}}</td>
+              <td>{{formatDisplayDate(post.postDate)}}</td>
+              <td>
+                <button ng-click="deletePost(post)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                  <i class="material-icons">delete</i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mdl-grid" ng-init="loadData()" ng-if="navLocal == 'Portfolio'">
+      <div class="mdl-cell mdl-cell--12-col">
+        <table class="mdl-data-table mdl-js-data-table full-width mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Git Link</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="port in ports | filter:{name: searchText}">
+              <td>{{port._id}}</td>
+              <td>{{port.name}}</td>
+              <td>
+                <a ng-href="{{port.git}}" target="_blank" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                  <i class="material-icons">code</i>
+                </a>
+              </td>
+              <td>
+                <button ng-click="deletePort(port)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                  <i class="material-icons">delete</i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

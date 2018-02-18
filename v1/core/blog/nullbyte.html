@@ -1,0 +1,22 @@
+<p class="par"><a href="http://en.wikipedia.org/wiki/Null_character" class="blog-link">Null Byte</a> Injection was a great vulnerability in the older versions of <a href="http://php.net/" class="blog-link">PHP</a>. Although it is not as big of a issue, it still pays to learn about best security practices.</p>
+<p class="par">So what is a Null Byte then? A Null Byte is a symbol that represents the end of a string in memory. So if a malicious user injects that into their input they could disrupt the program. The Null Byte we need to watch out for is \0 or %00. For <a href="https://github.com/JacobTheEvans/PHP-Null-Byte-Example" class="blog-link">example</a> take a look at the code below.</p>
+<pre class="prettyprint">
+  &lt;?php
+  $file = $_GET['file']; // "../../etc/passwd\0"
+  if (file_exists('/home/wwwrun/'.$file.'.php')) {
+      // file_exists will return true as the file /home/wwwrun/../../etc/passwd exists
+      include '/home/wwwrun/'.$file.'.php';
+      // the file /etc/passwd will be included
+  }
+  ?>
+</pre>
+<p class="par">Although you would not use this code it shows the danger if the users input is trusted. If given a chance they could open dangerous/sensitive items such as <a href="http://en.wikipedia.org/wiki/Passwd" class="blog-link">/etc/passwd</a>. So to fix the vulnerability we sanitize are input with something like the code below.</p>
+<pre class="prettyprint">
+  &lt;?php
+  $file = str_replace(chr(0), '', $_GET["input"]);
+  //Replaces Null Bytes
+  if (file_exists('/home/wwwrun/'.$file.'.php')) {
+      include '/home/wwwrun/'.$file.'.php';
+  }
+  ?>
+</pre>

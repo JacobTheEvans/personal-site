@@ -1,0 +1,17 @@
+<p class="par"><a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression" class="blog-link">Immediately-Invoked Function Expression</a> is JavaScript design pattern to limit pollution of the global name space and also immediately call a function.</p>
+<p class="par"> Meaning that instead of declaring function you are only ever going to use once you can use IIFE to declare a function then immediately run it leaving the name of the function free and all variables inside of the function out of the global name space.</p>
+<p class="par">Standard way</p>
+<pre class="prettyprint">
+var someFunc = function() {
+  console.log("Done something");
+};
+someFunc();
+</pre>
+<p class="par">Immediately-Invoked Function Expression</p>
+<pre class="prettyprint">
+(function() {
+  console.log("Done something");
+})();
+</pre>
+<p class="par">When to use</p>
+<p class="par">When a function is to be used Immediately and you don't want the variables or functions inside to pollute the global name space.</p>

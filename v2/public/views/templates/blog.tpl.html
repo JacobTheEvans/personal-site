@@ -1,0 +1,74 @@
+<div id="loading">
+  <img class="total-center" src="/images/gear.gif">
+  <p class="color-blue">Loading content</p>
+</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <a href="#/home" class="nav-links"><span class="mdl-layout-title nav-bar_title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+      <div class="mdl-layout-spacer space_m"></div>
+      <a class="mdl-navigation__link nav-bar_link" href="#/home">Home</a>
+      <a class="mdl-navigation__link nav-bar_link" href="#/home">About</a>
+      <a class="mdl-navigation__link nav-bar_link" href="#/home">Profitflo</a>
+      <a class="mdl-navigation__link nav-bar_link" href="#/blog">Blog</a>
+      <a href="#/home" class="nav-links nav-bar_m "><span class="mdl-layout-title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title drawer_title">Jacob Evans <img class="logo-icon-drawer" src="/images/white-logo.png"></img></span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link drawer_link" href="#/home">Home</a>
+      <a class="mdl-navigation__link drawer_link" href="">About</a>
+      <a class="mdl-navigation__link drawer_link" href="">Profitflo</a>
+      <a class="mdl-navigation__link drawer_link" href="#/blog">Blog</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <video autoplay  poster="/images/Aloha-Mundo.jpg" id="bgvid" loop>
+      <source src="/video/Aloha-Mundo.webm" type="video/webm">
+      <source src="/video/Aloha-Mundo.mp4" type="video/mp4">
+    </video>
+    <div id="top"></div>
+    <div class="header-logo">
+      <div class="header-inner">
+        <div class="logo logo-m">Jacobs' Blog</div>
+        <div class="sub-logo sub-m">
+          Knowledge Through Exploration
+        </div>
+      </div>
+    </div>
+    <div class="article-main">
+      <div id="articles"></div>
+      <div ng-init="loadPosts()">
+        <div class="mdl-grid" ng-repeat="post in posts | orderBy: 'postDate':true track by $index ">
+          <div class="mdl-cell mdl-cell--12-col">
+            <div class="blog-post">
+              <a href="#/article/{{post.title}}" class="blog-list-title"><b>{{post.title}}</b></a>
+              <p ng-init="getArticle($index)" ng-bind-html="articles[post.title]"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="mdl-mini-footer blog-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">
+          <a class="footer-link" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0 Copyright</a>
+        </div>
+      </div>
+      <div class="mdl-mini-footer__right-section">
+        <a href="https://twitter.com/jacobtheevans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/jacobtheevans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/JacobTheEvans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-github"></i></a>
+      </div>
+    </footer>
+  </main>
+</div>
+<script>
+var hover = function(elem) {
+  elem.setAttribute('src', "/images/logo.png");
+}
+var leave = function(elem) {
+  elem.setAttribute('src', "/images/white-logo.png");
+}
+</script>

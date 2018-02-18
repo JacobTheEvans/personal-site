@@ -1,0 +1,61 @@
+<div id="loading">
+  <img class="total-center" src="/images/gear.gif">
+  <p class="color-blue">Loading content</p>
+</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <a href="#/home" class="nav-links"><span class="mdl-layout-title nav-bar_title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+      <div class="mdl-layout-spacer space_m"></div>
+      <a href="#/home" class="nav-links nav-bar_m "><span class="mdl-layout-title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="riddle">
+      <div ng-if="!isBrother" class="center-card mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+          <h2>Frater?</h2>
+          <a ng-click="toggleBrother()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect grey">
+            Positivus
+          </a>
+          <a ng-click="redirect()"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect grey">
+            Infitialis
+          </a>
+        </div>
+      </div>
+      <div class="center-card mdl-card mdl-shadow--6dp text-center" ng-if="isBrother" ng-init="updateMDL()">
+          <div class="mdl-card__supporting-text">
+            <h4 class="text-center">Welcome<br>Please Login</h4>
+            <form ng-submit="login()">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" id="text-field-username" ng-model="userdata.username">
+                  <label class="mdl-textfield__label" for="text-field-username">Username</label>
+              </div>
+              <br>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input type="password" class="mdl-textfield__input" id="text-field-Password" ng-model="userdata.password">
+                  <label class="mdl-textfield__label" for="text-field-Password">Password</label>
+              </div>
+              <input type="submit" style="position: absolute; left: -9999px"/>
+            </form>
+              <div class="mdl-card__actions">
+                  <a ng-click="login()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent blue-button">
+                    Login
+                  </a>
+                  <br>
+                  <br>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script>
+var hover = function(elem) {
+  elem.setAttribute('src', "/images/logo.png");
+}
+var leave = function(elem) {
+  elem.setAttribute('src', "/images/white-logo.png");
+}
+</script>

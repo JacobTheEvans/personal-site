@@ -1,0 +1,51 @@
+<p class="par"><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" class="blog-link">ECMAScript 5</a> has a mode you has a developer can enabled to restrict aspects of JavaScript called Strict Mode. It can be enabled in an entire script or in functions by using the "use strict"; before any statements. But what exactly does it do?</p>
+<p class="par">Strict mode will force users to declare variables to prevent pollution of global scope.</p>
+<pre class="prettyprint">
+  //Before
+ v = "This is not strict mode";
+ //Runs
+
+ //After Error
+ "use strict";
+ v = "This is strict mode";
+ //Throws Error
+
+ //After Correct
+ "use strict";
+ var v = "This is strict mode";
+ //Runs
+</pre>
+<p class="par">It will also not allow a property to be declared more than once.</p>
+<pre class="prettyprint">
+  //Will run
+var obj = {test: true, test: true};
+
+//Throws Error
+"use strict";
+var obj = {test: true, test: true};
+</pre>
+
+<p class="par">Any attempt to use keyword eval will result in an error.</p>
+<pre class="prettyprint">
+//All Errors
+"user strict";
+
+var obj = {};
+obj.eval = "Anything";
+
+function test(eval) {
+   //Anything
+}
+
+var test = function(eval) {
+   //Anything
+}
+</pre>
+<p class="par">Will not allow repeat names of arguments in a function.</p>
+<pre class="prettyprint">
+"use strict";
+//Throws Error
+function test (a,a) {
+  //Anything
+}
+</pre>

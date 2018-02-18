@@ -1,0 +1,148 @@
+<div id="loading">
+  <img class="total-center" src="/images/gear.gif">
+  <p class="color-blue">Loading content</p>
+</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <a href="#/home" class="nav-links"><span class="mdl-layout-title nav-bar_title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+      <div class="mdl-layout-spacer space_m"></div>
+      <a class="mdl-navigation__link nav-bar_link" ng-click="gotoElement('top')">Home</a>
+      <a class="mdl-navigation__link nav-bar_link" ng-click="gotoElement('about')">About</a>
+      <a class="mdl-navigation__link nav-bar_link" ng-click="gotoElement('port')">Profitflo</a>
+      <a class="mdl-navigation__link nav-bar_link" href="#/blog">Blog</a>
+      <a href="#/home" class="nav-links nav-bar_m "><span class="mdl-layout-title"><img onmouseover="hover(this);"  onmouseleave="leave(this);" class="logo-icon-main" src="/images/white-logo.png"></img></span></a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title drawer_title">Jacob Evans <img class="logo-icon-drawer" src="/images/white-logo.png"></img></span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link drawer_link" ng-click="gotoElement('top')">Home</a>
+      <a class="mdl-navigation__link drawer_link"ng-click="gotoElement('about')">About</a>
+      <a class="mdl-navigation__link drawer_link" ng-click="gotoElement('port')">Profitflo</a>
+      <a class="mdl-navigation__link drawer_link" href="#/blog">Blog</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <video autoplay  poster="/images/Aloha-Mundo.jpg" id="bgvid" loop>
+      <source src="/video/Aloha-Mundo.webm" type="video/webm">
+      <source src="/video/Aloha-Mundo.mp4" type="video/mp4">
+    </video>
+    <div id="top"></div>
+    <div class="header-logo">
+      <div class="header-inner">
+        <div class="logo logo-m">Jacob Evans</div>
+        <div class="sub-logo sub-m">
+          Web Developer and Data Nerd
+        </div>
+        <div class="down-chev-div">
+          <a ng-click="gotoElement('about')" class="down-chev jump"><i class="fa fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="about-section">
+      <div id="about"></div>
+      <h3>About</h3>
+      <div class="line-top"></div>
+      <div class="mdl-grid about-area">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <div class="desc">
+            <p>I am Jacob Evans. I love computer science and anything to do with technology. I am also an avid Linux user and a big supporter of the open source movement.</p>
+            <p>If you would like to see more of my skills check out my <a href="https://drive.google.com/file/d/0B_j3Gw2zzEvBVHktLUZaRjdlVDQ/view?usp=sharing" target="_blank" class="outside-link">resume</a> or <a class="outside-link" href="https://github.com/JacobTheEvans" target="_blank">github</a>.</p>
+          </div>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <div class="skills">
+            <label>Languages</label>
+            <p>HTML, CSS, JavaScript, Python, PHP and Java</p>
+            <label>Frameworks</label>
+            <p>Angular, ExpressJS, NodeJS, jQuery, MDL, and Bootstrap</p>
+            <label>Databases</label>
+            <p>MySQL, PostgreSQL and MongoDB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-section" ng-init="loadProjects()">
+      <div id="port"></div>
+      <h3>Portfolio</h3>
+      <div class="line-top"></div>
+      <div class="portfolio-area mdl-shadow--4dp">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col">
+            <h4 class="color-blue project-name">{{currentProject.name}}</h4>
+            <br>
+            <p class="par-padding">{{currentProject.desc}}</p>
+            <br>
+            <a target="_blank" ng-href="{{currentProject.git}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent blue-button">THE CODE</a>
+          </div>
+          <div class="mdl-cell mdl-cell--9-col">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--2-col">
+                <a class="chev chev-left" ng-click="subIndex()">
+                  <span><i class="fa fa-chevron-circle-left"></i></span>
+                </a>
+              </div>
+              <div class="mdl-cell mdl-cell--8-col back-grey">
+                <div class="cont-div">
+                  <img class="project-image" ng-src="{{currentProject.images[0]}}">
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--2-col">
+                <a class="chev chev-right" ng-click="addIndex()">
+                  <span><i class="fa fa-chevron-circle-right"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-m mdl-shadow--4dp">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col m-full-width">
+            <h4 class="color-blue project-name">{{currentProject.name}}</h4>
+            <br>
+            <p class="par-padding">{{currentProject.desc}}</p>
+            <br>
+            <a target="_blank" ng-href="{{currentProject.git}}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent blue-button">THE CODE</a>
+          </div>
+          <div class="mdl-cell mdl-cell--9-col mdl-cell--8-col-tablet m-full-width">
+            <div class="back-grey">
+              <a class="chev" ng-click="subIndex()">
+                <span><i class="fa fa-chevron-circle-up"></i></span>
+              </a>
+              <div class="cont-div">
+                <img class="project-image-m" ng-src="{{currentProject.images[0]}}">
+              </div>
+              <a class="chev" ng-click="addIndex()">
+                <span><i class="fa fa-chevron-circle-down"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="test">
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            <a class="footer-link" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0 Copyright</a>
+          </div>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <a href="https://twitter.com/jacobtheevans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/jacobtheevans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/JacobTheEvans" class="mdl-button mdl-js-button mdl-button--icon footer-btn"><i class="fa fa-github"></i></a>
+        </div>
+      </footer>
+    </div>
+  </main>
+</div>
+<script>
+var hover = function(elem) {
+  elem.setAttribute('src', "/images/logo.png");
+}
+var leave = function(elem) {
+  elem.setAttribute('src', "/images/white-logo.png");
+}
+</script>

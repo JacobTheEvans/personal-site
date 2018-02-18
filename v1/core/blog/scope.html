@@ -1,0 +1,20 @@
+<p class="par">When working with JavaScript a fundamental concept you need to understand is <a href="http://www.w3schools.com/js/js_scope.asp" class="blog-link">variable scope</a>.</p>
+<p class="par">In most other programming languages a variable scope is controlled by where it falls in brackets({ }) but not in JavaScript. JavaScript variable scope is controlled by function scope. Meaning that if a variable is declared outside of a function it is a global variable. Also that if a variable is declared in a function it is local to that function and cannot be accessed outside of its scope.</p>
+<pre class="prettyprint">
+//Can be accessed by any other code
+var someVar = "Is global";
+
+function someFunc() {
+  //Can only be accessed code inside of someFunc
+  var someOtherVar = "Is local";
+}
+</pre>
+<p class="par">But be warned when you are inside of a function you must use the “var” keyword or else the variable is now global.</p>
+<pre class="prettyprint">
+function someFunc() {
+  someVar = "A var";
+}
+someFunc();
+console.log(someVar);
+//prints "A var"
+</pre>

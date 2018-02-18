@@ -1,0 +1,66 @@
+<div id="loading">
+  <img class="total-center" src="/images/gear.gif">
+  <p class="color-blue">Loading content</p>
+</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+  <header class="mdl-layout__header mdl-chat__header">
+    <div class="mdl-layout__header-row mdl-chat__header">
+      <span class="mdl-layout-title">{{type}}</span>
+      <div class="mdl-layout-spacer space_m"></div>
+      <a class="mdl-navigation__link nav_link" ng-click="submit()" href="">Save <i class="fa fa-floppy-o"></i></a>
+      <a class="mdl-navigation__link nav_link" ng-click="loadPreview()" href="">Preview <i class="fa fa-file"></i></a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title drawer_title">Admin<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">arrow_drop_down</i></button></span>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+      <a class="sub-menu" href="/"><li class="mdl-menu__item">Logout</li></a>
+    </ul>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link drawer_link" href="#/manage">Blog</a>
+      <a class="mdl-navigation__link drawer_link" href="#/manage">Portfolio</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="maker-container mdl-shadow--4dp" ng-if="type == 'Blog'">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <input class="mdl-textfield__input full-width" id="text-field-title" ng-model="formdata.title">
+        <label class="mdl-textfield__label" for="text-field-title">Title</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <input class="mdl-textfield__input full-width" id="text-field-auth" ng-model="formdata.auth">
+        <label class="mdl-textfield__label" for="text-field-auth">Author</label>
+      </div>
+      <br>
+      <div class="full-width">
+        <label class="html-label">Blog HTML</label>
+        <div class="editor" ui-ace="{ mode: 'html', theme: 'chrome' }" ng-model="formdata.text"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+          <input class="mdl-textfield__input full-width" id="text-field-date" ng-model="formdata.postDate">
+          <label class="mdl-textfield__label" for="text-field-date">Date</label>
+        </div>
+      </div>
+    </div>
+    <div class="maker-container mdl-shadow--4dp" ng-if="type == 'Portfolio'">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <input class="mdl-textfield__input full-width" id="text-field-name" ng-model="formdata.name">
+        <label class="mdl-textfield__label" for="text-field-name">Name</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <input class="mdl-textfield__input full-width" id="text-field-git" ng-model="formdata.git">
+        <label class="mdl-textfield__label" for="text-field-git">Git URL</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <textarea class="mdl-textfield__input" id="text-field-multi-text full-width" rows="22" ng-model="formdata.desc"></textarea>
+        <label class="mdl-textfield__label" for="text-field-multi-text">Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+        <input class="mdl-textfield__input full-width" id="text-field-image" ng-model="formdata.images">
+        <label class="mdl-textfield__label" for="text-field-images">Image URLs</label>
+      </div>
+    </div>
+  </main>
+</div>

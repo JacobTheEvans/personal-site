@@ -1,0 +1,44 @@
+<p class="par"><a href="http://www.igniterealtime.org/projects/openfire/" class="blog-link">OpenFire</a> is an IM and group chat server that uses Apache. In this post I will you teach you how to install OpenFire on <a href="http://www.ubuntu.com/download/server" class="blog-link">Ubuntu Server 14.04</a>. Lets get started.</p>
+<p class="par color-blue">Step 1:</p>
+<p class="par">Make sure your sever is updated.</p>
+<p class="par">sudo apt-get update && sudo apt-get upgrade</p>
+<br>
+<p class="par color-blue">Step 2:</p>
+<p class="par">Install openjdk 7 which is required for OpenFire.</p>
+<p class="par">sudo apt-get install openjdk-7-jre</p>
+<br>
+<p class="par color-blue">Step 3:</p>
+<p class="par">Download OpenFire onto the server.</p>
+<p class="par">wget http://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_3_9_3.tar.gz</p>
+<br>
+<p class="par color-blue">Step 4:</p>
+<p class="par">Rename file.</p>
+<p class="par">mv downloadServlet?filename=openfire%2Fopenfire_3_9_3.tar.gz openfire_3_9_3.tar.gz</p>
+<br>
+<p class="par color-blue">Step 5:</p>
+<p class="par">Unpack the .tar.gz file.</p>
+<p class="par">tar -xvxf openfire_3_9_3.tar.gz</p>
+<br>
+<p class="par color-blue">Step 6:</p>
+<p class="par">Move OpenFire to /opt</p>
+<p class="par">sudo mv openfire /opt</p>
+<br>
+<p class="par color-blue">Step 7:</p>
+<p class="par">Edit config file.</p>
+<p class="par">sudo nano /opt/openfire/conf/openfire.xml</p>
+<p class="par">Uncomment the <network> tag and put your servers public IP in between the tags.</p>
+<br>
+<p class="par">Example:</p>
+<p class="par">&lt;network>192.168.7.20&lt;/network></p>
+<br>
+<p class="par color-blue">Step 8:</p>
+<p class="par">Now start you server.</p>
+<p class="par">/opt/openfire/bin/openfire start</p>
+<br>
+<p class="par color-blue">Step 9:</p>
+<p class="par">Go through setup in browser.</p>
+<p class="par">Choose you language and click continue. Then choose embedded database and you will be confronted with admin configuration panel. Set up the account with your information. Then login using username: admin and what ever password you set the password as.</p>
+<br>
+<p class="par color-blue">Step 10:</p>
+<p class="par">Set up your users and start talking!</p>
+<br>

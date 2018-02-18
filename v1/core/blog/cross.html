@@ -1,0 +1,25 @@
+<p class="par"><a href="https://en.wikipedia.org/wiki/Cross-site_scripting" class="blog-link">XSS Cross Site Scripting</a> is the act of injecting malicious HTML or Java Script into a web page. This can happen wherever a user can provide input into a web page. Why is this an issue? A user could use JavaScript, iframes and other methods to steal information from your other users.
+For example a malicious user could use an iframe to display a web page that looks like the websites login but instead catches there login info. See an example of malicious iframe below.</p>
+<pre class="prettyprint">&lti;frame style="position:fixed; top:0px; left:0px; width:100%; height:100%; border:none; z-index:99;" border="0" src="http://en.wikipedia.org/wiki/Cross-site_scripting"/></pre>
+<p class="par">So how do we prevent it? We make sure to sanitize any input provided by a user. Example fix code in Python, JavaScript and PHP below.</p>
+<a href="https://wiki.python.org/moin/EscapingHtml" class="blog-link">Python.org</a>
+<br>
+<pre class="prettyprint">import cgi
+  s = cgi.escape( """& < >""" )</pre>
+<br>
+<a href="http://shebang.brandonmintern.com/foolproof-html-escaping-in-javascript/" class="blog-link">JavaScript !shebang catch them all</a>
+<br>
+<pre class="prettyprint">// Use the browser's built-in functionality to quickly and safely escape the
+// string
+function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+};</pre>
+<a href="http://php.net/htmlentities" class="blog-link">PHP htmlentities</a>
+<pre class="prettyprint">&lt;?php
+  function santizeInput($input){
+    $result = htmlentities($input, ENT_COMPAT, 'UTF-8');
+    return $result;
+  }
+?></pre>

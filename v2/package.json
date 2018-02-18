@@ -1,0 +1,21 @@
+{
+  "name": "Jacob-Website",
+  "version": "3.0.0",
+  "description": "Personal website made with the MEAN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob EVans",
+  "license": "Apache 2.0 license",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.6",
+    "path": "^0.12.7",
+    "robots.txt": "^1.1.0"
+  }
+}

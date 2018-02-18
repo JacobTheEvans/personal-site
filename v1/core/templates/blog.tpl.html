@@ -1,0 +1,26 @@
+<div id="home" class="header">
+  <div class="header-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="logo logo-m-blog">Jacobs' Blog</div>
+          <div class="sub-logo sub-m-blog">Knowledge Through Exploration</div>
+          <a ng-click="gotoElement('articles')" class="down-chev jump"><i class="fa fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div id="articles"></div>
+<div class="wrapper-blog">
+  <div ng-init="loadPosts()" class="container">
+    <div ng-repeat="post in posts track by $index">
+      <div class="col-lg-12">
+        <div class="blog-post">
+          <a href="#/article/{{post.title}}" class="blog-list-title"><b>{{post.title}}</b></a>
+          <p ng-init="getArticle($index)" ng-bind-html="articles[$index]"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
